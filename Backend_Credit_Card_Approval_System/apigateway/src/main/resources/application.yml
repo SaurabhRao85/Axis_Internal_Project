@@ -1,0 +1,17 @@
+server:
+  port: 9000
+  
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: creditcardservice  #route identification
+        uri: http://localhost:8095/
+        predicates:
+        - Path=/api/CreditCard/**
+        
+       
+      - id: userservice  #route identification
+        uri: http://localhost:8094/
+        predicates:
+         - Path=/api/users/** 
